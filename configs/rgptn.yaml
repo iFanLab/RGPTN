@@ -1,0 +1,107 @@
+common:
+  intra_adj_norm: both
+  intra_adj_norm_alpha: -0.5
+  inter_adj_norm: both
+  inter_adj_norm_alpha: 0
+  k_votes: 99999999
+  train_args:
+    lr: 0.2
+    weight_decay: 0.01
+
+cora:
+  n_prop_layers: 10
+  ppr_alpha: 0.05
+  n_tran_layers: 1
+  n_estimate_epochs: 1
+  lam_dynamic: 15
+  lam_unsup: 2.2
+
+citeseer:
+  n_prop_layers: 4
+  ppr_alpha: 0.3
+  x_norm: l2
+  n_tran_layers: 1
+  n_estimate_epochs: 1
+  lam_dynamic: 20
+  lam_unsup: 4
+
+pubmed:
+  n_prop_layers: 10
+  ppr_alpha: 0.05
+  x_norm: l2
+  n_tran_layers: 2
+  n_hid: 64
+  n_estimate_epochs: 2
+  lam_dynamic: 10
+  lam_unsup: 0.4
+  train_args:
+    lr: 0.1
+
+ogbn_arxiv:
+  n_prop_layers: 6
+  ppr_alpha: 0.05
+  x_norm: null
+  n_tran_layers: 3
+  n_hid: 256
+  norm: layernorm
+  k_votes: 1
+  n_estimate_epochs: 1
+  lam_dynamic: 0
+  lam_unsup: 1
+  train_args:
+    n_epochs: 500
+    early_stopping: 100000
+    lr: 0.005
+    weight_decay: 0.0005
+
+# Hypergraph
+cora_cc:
+  ppr_alpha: 0.05
+  n_prop_layers: 6
+  n_tran_layers: 1
+  n_hid: 128
+  x_norm: l2
+  n_estimate_epochs: 3
+  lam_dynamic: 10
+  lam_unsup: 2
+  train_args:
+    lr: 0.1
+    weight_decay: 0.005
+
+citeseer_cc:
+  ppr_alpha: 0.1
+  n_prop_layers: 8
+  n_tran_layers: 1
+  x_norm: l2
+  n_estimate_epochs: 2
+  lam_dynamic: 5
+  lam_unsup: 1.5
+  train_args:
+    lr: 0.1
+    weight_decay: 0.005
+
+cora_ca:
+  ppr_alpha: 0.25
+  n_prop_layers: 8
+  n_tran_layers: 1
+  n_estimate_epochs: 3
+  lam_dynamic: 15
+  lam_unsup: 3
+  train_args:
+    lr: 0.1
+    weight_decay: 0.005
+
+# Heterograph
+acm:
+  n_prop_layers: 10
+  ppr_alpha: 0.05
+  intra_adj_norm_alpha: 0
+  inter_adj_norm: both
+  inter_adj_norm_alpha: -0.5
+  add_inter_self_loops: true
+  n_estimate_epochs: 1
+  lam_dynamic: 10
+  lam_unsup: 2.8
+  train_args:
+    lr: 0.1
+    weight_decay: 0.005
